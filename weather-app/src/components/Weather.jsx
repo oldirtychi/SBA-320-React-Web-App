@@ -30,16 +30,16 @@ const Weather = () => {
         <p className='location'>Chicago</p>
         <div className="weather-data">
          <div className="col">
-              <img src={humidity_icon} alt=""/>
+              <img src={humidity_icon} alt="" className='metrics'/>
               <div>
                   <p>50 %</p>
                   <span>Humidity</span>
               </div>
             </div>
          <div className="col">
-              <img src={wind_icon} alt=""/>
+              <img src={wind_icon} alt="" className='metrics'/>
               <div>
-                  <p>50 %</p>
+                  <p>12 mph</p>
                   <span>Wind Speed</span>
               </div>
             </div>
