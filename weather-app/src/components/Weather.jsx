@@ -1,6 +1,8 @@
 import React from 'react'
 import './Weather.css'
 import search from '../assets/search.png'
+import humidity_icon from '../assets/humidity.png'
+import wind_icon from '../assets/wind.png'
 import clear_day from '../assets/clear_day.png'
 // import clear_night from '../assets/clear_night.png'
 // import few_clouds_day from '../assets/few_clouds_day.png'
@@ -15,6 +17,7 @@ import clear_day from '../assets/clear_day.png'
 // import thuderstorm_day from '../assets/thuderstorm_day.png'
 // import thunderstorm_night from '../assets/thunderstorm_night.png'
 
+
 const Weather = () => {
   return (
     <div className='weather'>
@@ -25,8 +28,24 @@ const Weather = () => {
         <img src={clear_day} alt="" className='weather-icon' />
         <p className='temperature'>68°F</p>
         <p className='location'>Chicago</p>
+        <div className="weather-data">
+         <div className="col">
+              <img src={humidity_icon} alt=""/>
+              <div>
+                  <p>50 %</p>
+                  <span>Humidity</span>
+              </div>
+            </div>
+         <div className="col">
+              <img src={wind_icon} alt=""/>
+              <div>
+                  <p>50 %</p>
+                  <span>Wind Speed</span>
+              </div>
+            </div>
+         </div>
     </div>
   )
 }
 
-export default Weather
+export default Weather    
