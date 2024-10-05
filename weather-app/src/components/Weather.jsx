@@ -1,9 +1,14 @@
 import React from 'react'
 import './Weather.css'
+import search from '../assets/search.png'
+
 const Weather = () => {
   return (
-    <div>
-      <h1>Weather Now</h1>
+    <div className='weather'>
+        <div className="search-bar">
+            <input type="text" placeholder='Search'/>
+            <img src={search} alt="" />
+        </div>
     </div>
   )
 }
