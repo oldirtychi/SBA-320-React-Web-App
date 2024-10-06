@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Weather.css'
-import search from '../assets/search.png'
+import search_icon from '../assets/search.png'
 import humidity_icon from '../assets/humidity.png'
 import wind_icon from '../assets/wind.png'
 import clear_day from '../assets/clear_day.png'
@@ -19,13 +19,31 @@ import clear_day from '../assets/clear_day.png'
 
 
 const Weather = () => {
+
+    const search = async (city)=>{
+        try {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_APP_ID}`;
+
+            const response = await fetch(url);
+            const data = await response.json();
+                console.log(data);
+        } catch (error) {
+            
+        }
+    }
+ 
+    useEffect(() => {
+        search("Chicago")
+    }, []) 
+
+
   return (
     <div className='weather'>
         <div className="search-bar">
             <input type="text" placeholder='Search'/>
-            <img src={search} alt="" />
+            <img src={search_icon} alt="" />
         </div>
-        <img src={clear_day} alt="" className='weather-icon' />
+        <img src={clear_day} alt="" className='weather-icon'/>
         <p className='temperature'>68°F</p>
         <p className='location'>Chicago</p>
         <div className="weather-data">
@@ -39,7 +57,7 @@ const Weather = () => {
          <div className="col">
               <img src={wind_icon} alt="" className='metrics'/>
               <div>
-                  <p>12 mph</p>
+                  <p>12 mp/h</p>
                   <span>Wind Speed</span>
               </div>
             </div>
