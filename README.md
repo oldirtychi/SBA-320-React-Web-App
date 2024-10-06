@@ -34,7 +34,7 @@
 
   <h2 id="screenshots">Screenshots</h2>
   
-  <img src= "screenshot.PNG" alt="Weather App Screenshot">
+  <img src= "weather-app/public/screenshot.PNG" alt="Weather App Screenshot">
 
   <h2 id="technologies-used">Technologies Used</h2>
   <ul>
