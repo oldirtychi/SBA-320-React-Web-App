@@ -4,23 +4,42 @@ import search_icon from '../assets/search.png'
 import humidity_icon from '../assets/humidity.png'
 import wind_icon from '../assets/wind.png'
 import clear_day from '../assets/clear_day.png'
-// import clear_night from '../assets/clear_night.png'
-// import few_clouds_day from '../assets/few_clouds_day.png'
-// import few_clouds_night from '../assets/few_clouds_night.png'
-// import mist from '../assets/mist.png'
-// import rain_day from '../assets/rain_day.png'
-// import rain_night from '../assets/rain_night.png'
-// import scattered_clouds from '../assets/scattered_clouds.png'
-// import shower_rain_day from '../assets/shower_rain_day.png'
-// import shower_rain_night from '../assets/shower_rain_night.png'
-// import snow from '../assets/snow.png'
-// import thuderstorm_day from '../assets/thuderstorm_day.png'
-// import thunderstorm_night from '../assets/thunderstorm_night.png'
+import clear_night from '../assets/clear_night.png'
+import few_clouds_day from '../assets/few_clouds_day.png'
+import few_clouds_night from '../assets/few_clouds_night.png'
+import mist from '../assets/mist.png'
+import rain_day from '../assets/rain_day.png'
+import rain_night from '../assets/rain_night.png'
+import scattered_clouds from '../assets/scattered_clouds.png'
+import shower_rain_day from '../assets/shower_rain_day.png'
+import shower_rain_night from '../assets/shower_rain_night.png'
+import snow from '../assets/snow.png'
+import thunderstorm_day from '../assets/thunderstorm_day.png'
+import thunderstorm_night from '../assets/thunderstorm_night.png'
 
 
 const Weather = () => {
 
     const [weatherData, setWeatherData] = useState(false);
+    const allIcons = {
+        "01d": clear_day,
+        "01n": clear_night,
+        "02d": few_clouds_day,
+        "02n": few_clouds_night,
+        "50d": mist,
+        "50n": mist,
+        "10d": rain_day,
+        "10n": rain_night,
+        "03d": scattered_clouds,
+        "03n": scattered_clouds,
+        "09d": shower_rain_day,
+        "09n": shower_rain_night,
+        "13d": snow,
+        "13n": snow,
+        "11d": thunderstorm_day,
+        "11n": thunderstorm_night
+
+    }
 
 
     const search = async (city)=>{
@@ -30,11 +49,14 @@ const Weather = () => {
             const response = await fetch(url);
             const data = await response.json();
                 console.log(data);
+                const icon = allIcons [data.weather[0].icon] || clear_day;
                 setWeatherData({
                     humidity: data.main.humidity,
                     windSpeed: data.wind.speed,
                     temperature: Math.floor(data.main.temp),
-                    location: data.name
+                    location: data.name,
+                    icon: icon
+            
                 })
         } catch (error) {
             
